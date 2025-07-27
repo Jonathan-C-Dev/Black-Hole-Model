@@ -63,7 +63,7 @@ x = \frac{\cos(\phi)}{u}, \quad y = \frac{\sin(\phi)}{u}
 
 ## Demo
 
-![Orbital Simulation](black_hole_orbit.gif)
+![Black Hole Model](black_hole_orbit.gif)
 
 ---
 
