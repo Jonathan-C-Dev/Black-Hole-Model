@@ -1,101 +1,65 @@
 # Schwarzschild Black Hole Orbital Simulation
 
-This Python project simulates the orbit of a test particle around a Schwarzschild (non-rotating) black hole using relativistic corrections derived from General Relativity. The system models orbital motion under curved spacetime using the effective potential and visualizes the trajectory.
+This Python project simulates the orbit of a test particle around a Schwarzschild (non-rotating) black hole using relativistic corrections from General Relativity. It models the curvature of spacetime via the effective potential and visualizes orbital precession.
 
 ---
 
 ## Theory
 
-In polar coordinates \((r, \phi)\), we express the radial motion using the inverse radius \(u(\phi) = \frac{1}{r}\). The relativistic orbital equation derived from the Schwarzschild metric is:
+In polar coordinates (r, φ), we define u(φ) = 1 / r. The relativistic orbital equation becomes:
 
-\[
-\frac{d^2 u}{d\phi^2} + u = \frac{GM}{L^2} + 3GMu^2
-\]
+**d²u/dφ² + u = (GM) / L² + 3GMu²**
 
-where:
-
-- \( u = \frac{1}{r} \) is the inverse radial coordinate
-- \( G \) is the gravitational constant
-- \( M \) is the mass of the black hole
-- \( L \) is the angular momentum per unit mass
-
-This nonlinear second-order ODE accounts for relativistic effects like orbital precession and photon sphere instabilities.
+This nonlinear second-order ODE accounts for:
+- Orbital precession
+- Photon sphere behavior
+- Deviation from Newtonian orbits
 
 ---
 
-## Code Logic
+## Code Overview
 
-### 1. Import Libraries
-- `numpy` and `scipy` for numerical computation and ODE solving
-- `matplotlib` for plotting and animation
-- `PIL` (`pillow`) for saving the animation as a GIF
-
-### 2. Constants and Parameters
-- Schwarzschild radius: \( r_s = \frac{2GM}{c^2} \)
-- Adjustable constants: initial radius, angular momentum, and number of steps
-
-### 3. Equations of Motion
-The second-order ODE is rewritten as a system of first-order ODEs:
-- Let \( y_0 = u(\phi) \)
-- Let \( y_1 = \frac{du}{d\phi} \)
-
-\[
-\begin{cases}
-\frac{dy_0}{d\phi} = y_1 \\
-\frac{dy_1}{d\phi} = -y_0 + \frac{GM}{L^2} + 3GM y_0^2
-\end{cases}
-\]
-
-### 4. Numerical Solver
-- `solve_ivp` with method `"RK45"` integrates the ODE system over \(\phi\)
-
-### 5. Convert to Cartesian
-Convert polar coordinates to Cartesian:
-\[
-x = \frac{\cos(\phi)}{u}, \quad y = \frac{\sin(\phi)}{u}
-\]
-
-### 6. Animation
-- Uses `FuncAnimation` to animate the orbit
-- Saves as `clear_rotating_black_hole.gif`
+1. **Libraries**: Uses `numpy`, `scipy`, `matplotlib`, and `Pillow` (for GIF export).
+2. **Physics**: Implements relativistic motion using Schwarzschild spacetime.
+3. **ODE Solver**: Integrates using SciPy's `solve_ivp` (Runge-Kutta 45).
+4. **Visualization**: Polar trajectory converted to Cartesian (x, y) for plotting and animation.
+5. **Output**: A smooth animated GIF of the particle orbit.
 
 ---
 
 ## Demo
 
-![Black Hole Model](clear_rotating_black_hole.gif)
+![Black Hole Orbit Animation](orbit.gif)
 
 ---
 
 ## Assumptions
 
-- The particle is a **test particle**, meaning its mass is negligible and does not affect spacetime.
-- The black hole is **non-rotating** (Schwarzschild metric, not Kerr).
-- The system is **isolated and in vacuum**—no other gravitational sources or perturbations.
-- **Only spatial motion** is visualized; time dilation and gravitational redshift are not shown.
+- Particle is massless (test particle); does not curve spacetime.
+- Black hole is static and non-rotating (Schwarzschild).
+- No external forces; the environment is a perfect vacuum.
+- Time dilation and redshift are not included—purely spatial motion.
 
 ---
 
 ## Limitations
 
-- The simulation is limited to **two dimensions**.
-- No **frame dragging** effects (no Kerr spacetime).
-- Only **geometric trajectories** are simulated; **time-dependent spacetime diagrams** are not visualized.
-- **Unstable or plunging orbits** (i.e. falling past event horizon) may break the simulation if \(r\) approaches zero.
+- Simulated in 2D only.
+- No frame-dragging effects (Kerr metric not used).
+- No general spacetime diagram—only geometric orbits.
+- Simulation may become unstable if r → 0 (falling into event horizon).
 
 ---
 
-## Dependencies
-
-This script requires:
+## Requirements
 
 - Python 3.x
-- numpy
-- scipy
-- matplotlib
-- pillow (for saving GIFs)
+- `numpy`
+- `scipy`
+- `matplotlib`
+- `pillow`
 
-### Install via pip:
+### Install dependencies:
 
 ```bash
 pip install numpy scipy matplotlib pillow
