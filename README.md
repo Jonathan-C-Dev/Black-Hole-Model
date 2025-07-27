@@ -57,13 +57,13 @@ x = \frac{\cos(\phi)}{u}, \quad y = \frac{\sin(\phi)}{u}
 
 ### 6. Animation
 - Uses `FuncAnimation` to animate the orbit
-- Saves as `black_hole_orbit.gif`
+- Saves as `clear_rotating_black_hole.gif`
 
 ---
 
 ## Demo
 
-![Black Hole Model](black_hole_orbit.gif)
+![Black Hole Model](clear_rotating_black_hole.gif)
 
 ---
 
