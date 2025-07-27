@@ -185,3 +185,4 @@ def create_physics_animation():
 if __name__ == "__main__":
     fig, anim = create_physics_animation()
     plt.show()
+    anim.save('clear_rotating_black_hole.gif', writer='pillow', fps=10)
