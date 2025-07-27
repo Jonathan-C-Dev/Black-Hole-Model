@@ -29,7 +29,7 @@ This nonlinear second-order ODE accounts for:
 
 ## Demo
 
-![Black Hole Orbit Animation](orbit.gif)
+![Black Hole Orbit Animation](clear_rotating_black_hole.gif)
 
 ---
 
